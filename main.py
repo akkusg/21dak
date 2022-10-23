@@ -19,7 +19,7 @@ app.secret_key = 'bizim cok zor gizli sozcugumuz'
 # Blueprints
 app.register_blueprint(admin)
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
 mydb = myclient["PersonalTrainer"]
 users_table = mydb["Users"]
 loginLogs = mydb["LoginLogs"]
