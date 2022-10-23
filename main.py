@@ -75,7 +75,7 @@ def login():
         hashed_password = hashlib.pbkdf2_hmac(
             'sha256', # The hash digest algorithm for HMAC
             password.encode('utf-8'), # Convert the password to bytes
-            username, # Provide the salt
+            username.encode('utf-8'), # Provide the salt
             100000, # It is recommended to use at least 100,000 iterations of SHA-256 
             dklen=128 # Get a 128 byte key
         )
@@ -116,7 +116,7 @@ def register():
         user["password"] = hashlib.pbkdf2_hmac(
             'sha256', # The hash digest algorithm for HMAC
             user["password"].encode('utf-8'), # Convert the password to bytes
-            user["_id"], # Provide the salt
+            user["_id"].encode('utf-8'), # Provide the salt
             100000, # It is recommended to use at least 100,000 iterations of SHA-256 
             dklen=128 # Get a 128 byte key
         )
