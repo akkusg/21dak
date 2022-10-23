@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body>
+{% include 'topbar.html' %}
+
+    <link href='/static/js/fullcalendar/main.min.css' rel='stylesheet' />
+    <script src='/static/js/fullcalendar/main.min.js'></script>
+    <script src='/static/js/fullcalendar/tr.js'></script>
+ <script>
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            events: [
+                {%for video in videos%}
+                    {
+                        title:'{{video.title}}',
+                        start:'{{video.premierStartDate}}',
+                        end:'{{video.premierEndDate}}',
+                        id: '{{video._id}}'
+                    },
+                {%endfor%}
+            ],
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            locale: 'tr',
+            selectable: true,
+            selectMirror: true,
+            eventClick: function(arg) {
+                console.log(arg.event._def.publicId);
+                var videoId = arg.event._def.publicId;
+                location.assign('/videos?id='+videoId)
+<!--        var eventId = arg.event._def.publicId-->
+<!--        location.assign('/videos?id='+eventId);-->
+            },
+            editable: false
+        });
+        calendar.render();
+  });
+
+</script>
+<style>
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+</style>
+
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">21 Dakika</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="static/js/homepage/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="/">Anasayfa</a></li>
+          {% if user.isVip() %}
+          <li><a class="nav-link" href="/videos">Ders İzle</a></li>
+          <li><a class="nav-link scrollto active" href="#main">Ders Programı</a></li>
+          {% else %}
+          <li><a class="nav-link" href="/subscriptions">Abonelikler</a></li>
+          {% endif %}
+          <li><a class="getstarted" href="/logout">Çıkış yap</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+<div class="container-fluid">
+
+  <div id='wrap'>
+
+    <div id='calendar-wrap'>
+      <div id='calendar'></div>
+    </div>
+
+  </div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+<!-- Links -->
+  <ul class="navbar-nav">
+      <!-- Navbar text-->
+    <li class="nav-item">
+      <a class="nav-link {% if 1 == active_page %} active {% endif %}>" href="/">Anasayfa</a>
+    </li>
+    {% if user.isVip() %}
+    <li class="nav-item">
+      <a class="nav-link {% if 2 == active_page %} active {% endif %}" href="/classes">Derslerimiz</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {% if 3 == active_page %} active {% endif %}" href="/trainers">Eğitmenlerimiz</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {% if 4 == active_page %} active {% endif %}" href="/videos">Ders Videoları</a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="/subscriptions">Üyelik Paketleri</a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+      <a class="nav-link {% if 5 == active_page %} active {% endif %}" href="/calendar">Takvim</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/iletisim">İletişim</a>
+    </li>
+    {% if user.isAdmin %}
+    <li class="nav-item">
+      <a class="nav-link {% if 6 == active_page %} active {% endif %}" href="/mesajlar">Mesajlar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/createPromoCode">Promosyon Kodu Oluştur</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/all-users">Tüm Kullanıcılar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users-week-old">1 Haftadır Girmeyen Kullanıcılar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/add-video">Video Yükle</a>
+    </li>
+    {% endif %}
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/logout"> Merhaba {{user.name}} - Çıkış yap</a>
+    </li>
+  </ul>
+
+</nav>

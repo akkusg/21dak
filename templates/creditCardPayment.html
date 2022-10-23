@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <title>21dakika.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+    </style>
+</head>
+<body>
+<div id="iyzipay-checkout-form" class="responsive"></div>
+<!--<div id="iyzipay-checkout-form" class="popup"></div>-->
+<form action="/buySubscription?id={{subscription._id}}" method="post">
+  <div class="imgcontainer">
+    <img src="/static/img_avatar2.png" height="90" width="80" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <table width="100%">
+      <tr>
+        <td width="50%">
+          <label for="cardNumber"><b>Kart Numarası</b></label>
+          <input type="number" placeholder="Kart Numarası" id="cardNumber" name="cardNumber" size="20" data-type="number" required>
+        </td>
+        <td width="50%">
+          <label for="cardHolderName"><b>Kartın Üzerindeki İsim</b></label>
+          <input type="text" placeholder="Kartın Üzerindeki İsim" id="cardHolderName" name="cardHolderName" data-type="name" required>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%">
+          <label for="expireMonth"><b>Son Kullanma Tarihi Ay</b></label>
+          <input type="number" placeholder="Ay" id="expireMonth" name="expireMonth" data-type="number" required>
+        </td>
+        <td width="50%">
+          <label for="expireYear"><b>Son Kullanma Tarihi Yıl</b></label>
+          <input type="number" placeholder="Yıl" id="expireYear" name="expireYear" data-type="number" required>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%">
+          <label for="cvc"><b>CVC</b></label>
+          <input type="number" placeholder="cvc" id="cvc" name="cvc" data-type="number" size="4" required>
+        </td>
+        <td width="50%">
+
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%">
+          <button type="submit">Öde</button>
+        </td>
+        <td width="50%">
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</form>
+</body>
+</html>

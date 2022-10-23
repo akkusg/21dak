@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21dakika.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+    </style>
+</head>
+<body>
+{% include 'navmenu.html' %}
+<div class="container">
+<table width="100%">
+    <tr>
+        <td width="20%">
+            <label><b>Ad</b></label>
+        </td>
+        <td width="20%">
+            <label><b>Soyad</b></label>
+        </td>
+        <td width="20%">
+            <label><b>E-Posta</b></label>
+        </td>
+        <td width="20%">
+            <label><b>Telefon</b></label>
+        </td>
+        <td width="20%">
+            <label><b>Son Giriş Tarihi</b></label>
+        </td>
+    </tr>
+    {%for current_user in user_list%}
+        <tr>
+            <td width="20%">
+            <label>{{current_user.name}}</label>
+        </td>
+        <td width="20%">
+            <label>{{current_user.surname}}</label>
+        </td>
+        <td width="20%">
+            <label>{{current_user.email}}</label>
+        </td>
+        <td width="20%">
+            <label>{{current_user.phone}}</label>
+        </td>
+        <td width="20%">
+            <label>{{current_user.lastLoginDate.strftime('%d-%m-%Y %H:%M:%S')}}</label>
+        </td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

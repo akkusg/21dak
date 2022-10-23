@@ -1,0 +1,589 @@
+[{
+  "_id": "15",
+  "title": "BASIC CROSSFIT",
+  "description": "Salih Gökçebaş",
+  "start": "2022-08-23 21:30:00",
+  "end": "2022-08-23 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "21",
+  "title": "MOBILITY STRECHING & BUSE",
+  "description": "",
+  "start": "2022-08-24 21:30:00",
+  "end": "2022-08-24 22:00:00",
+  "color": "#FFD700"
+},{
+  "_id": "23",
+  "title": "BASIC CROSSFIT & SALIH",
+  "description": "",
+  "start": "2022-08-24 22:00:00",
+  "end": "2022-08-24 22:30:00",
+  "color": "#40E0D0"
+},{
+  "_id": "24",
+  "title": "ÇALKAN ALGÜN",
+  "description": "",
+  "start": "2022-08-25 21:00:00",
+  "end": "2022-08-25 21:30:00",
+  "color": "#40E0D0"
+},{
+  "_id": "25",
+  "title": "BASIC CROSSFIT & SALIH",
+  "description": "",
+  "start": "2022-08-26 21:30:00",
+  "end": "2022-08-26 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "26",
+  "title": "YIN YOGA & BUKET",
+  "description": "BUKET",
+  "start": "2022-08-26 22:00:00",
+  "end": "2022-08-26 22:30:00",
+  "color": "#008000"
+},{
+  "_id": "31",
+  "title": "ANIMAL FLOW & OZGE",
+  "description": "",
+  "start": "2022-08-25 20:30:00",
+  "end": "2022-08-25 21:00:00",
+  "color": "#FFD700"
+},{
+  "_id": "32",
+  "title": "ANIMAL FLOW & OZGE",
+  "description": "",
+  "start": "2022-08-23 21:00:00",
+  "end": "2022-08-23 21:30:00",
+  "color": "#FFD700"
+},{
+  "_id": "34",
+  "title": "MAT PILATES & BUKET",
+  "description": "",
+  "start": "2022-08-27 10:00:00",
+  "end": "2022-08-27 10:30:00",
+  "color": "#008000"
+},{
+  "_id": "35",
+  "title": "BASIC CROSSFIT & SALIH",
+  "description": "",
+  "start": "2022-08-27 09:30:00",
+  "end": "2022-08-27 10:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "36",
+  "title": "MOBILITY STRECHING & BUSE",
+  "description": "",
+  "start": "2022-08-27 09:00:00",
+  "end": "2022-08-27 09:30:00",
+  "color": "#0071c5"
+},{
+  "_id": "37",
+  "title": "ÇOCUK YOGASI (Solucanın Hikayesi)",
+  "description": "MERVE AKSU",
+  "start": "2022-08-27 10:30:00",
+  "end": "2022-08-27 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "39",
+  "title": "ÇOCUKLAR ICIN NEFES VE MEDITASYON & MERVE",
+  "description": "",
+  "start": "2022-08-27 20:30:00",
+  "end": "2022-08-27 21:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "40",
+  "title": "ZUMBA & HAZAL",
+  "description": "",
+  "start": "2022-08-25 20:00:00",
+  "end": "2022-08-25 20:30:00",
+  "color": "#FF0000"
+},{
+  "_id": "41",
+  "title": "YIN YOGA & BUKET",
+  "description": "",
+  "start": "2022-08-24 22:30:00",
+  "end": "2022-08-24 23:00:00",
+  "color": "#008000"
+},{
+  "_id": "42",
+  "title": "BESLENME UZMANI TAVSİYELERİ",
+  "description": "Okul çağındaki çocuklar için sağlıklı beslenme tüyoları ile Yetişkinlerde spor&beslenme ilişkisi",
+  "start": "2022-08-26 21:00:00",
+  "end": "2022-08-26 21:30:00",
+  "color": "#FF0000"
+},{
+  "_id": "44",
+  "title": "Animal Flow ",
+  "description": "Özge Tınaz",
+  "start": "2022-08-29 20:00:00",
+  "end": "2022-08-29 20:30:00",
+  "color": "#FFD700"
+},{
+  "_id": "45",
+  "title": "Zumba",
+  "description": "",
+  "start": "2022-08-29 20:30:00",
+  "end": "2022-08-29 21:00:00",
+  "color": "#FF0000"
+},{
+  "_id": "46",
+  "title": "Çalkan Algün ile Bölgesel Çalışma",
+  "description": "",
+  "start": "2022-08-29 21:00:00",
+  "end": "2022-08-29 21:30:00",
+  "color": "#0071c5"
+},{
+  "_id": "48",
+  "title": "Animal Flow ",
+  "description": "Özge Tınaz",
+  "start": "2022-08-31 21:00:00",
+  "end": "2022-08-31 21:30:00",
+  "color": "#FFD700"
+},{
+  "_id": "49",
+  "title": "BASIC CROSSFIT",
+  "description": "Salih Gökçebaş",
+  "start": "2022-08-30 21:30:00",
+  "end": "2022-08-30 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "51",
+  "title": "Çalkan Algün ile Fonksiyonel Antrenman",
+  "description": "",
+  "start": "2022-08-31 21:30:00",
+  "end": "2022-08-31 22:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "52",
+  "title": "BASIC CROSSFIT",
+  "description": "Salih Gökçebaş",
+  "start": "2022-09-01 21:00:00",
+  "end": "2022-09-01 21:30:00",
+  "color": "#40E0D0"
+},{
+  "_id": "53",
+  "title": "Pilates",
+  "description": "Buket Harikçi",
+  "start": "2022-09-01 20:30:00",
+  "end": "2022-09-01 21:00:00",
+  "color": "#008000"
+},{
+  "_id": "56",
+  "title": "Beslenme Uzmanı Değişim Kampı -1 Bilgilendirme ",
+  "description": "",
+  "start": "2022-09-01 20:00:00",
+  "end": "2022-09-01 20:30:00",
+  "color": "#000"
+},{
+  "_id": "57",
+  "title": "Çalkan Algün ile Değişim Kampı-1",
+  "description": "",
+  "start": "2022-09-02 20:30:00",
+  "end": "2022-09-02 21:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "58",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-03 10:00:00",
+  "end": "2022-09-03 10:30:00",
+  "color": "#FF0000"
+},{
+  "_id": "60",
+  "title": "Çalkan Algün ile Değişim Kampı-1",
+  "description": "",
+  "start": "2022-09-03 19:30:00",
+  "end": "2022-09-03 20:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "61",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-04 19:00:00",
+  "end": "2022-09-04 19:30:00",
+  "color": "#FF0000"
+},{
+  "_id": "62",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-05 20:30:00",
+  "end": "2022-09-05 21:00:00",
+  "color": "#FF0000"
+},{
+  "_id": "63",
+  "title": "Çalkan Algün ile Fonksiyonel Antrenman",
+  "description": "",
+  "start": "2022-09-05 21:00:00",
+  "end": "2022-09-05 21:30:00",
+  "color": "#0071c5"
+},{
+  "_id": "64",
+  "title": "BASIC CROSSFIT",
+  "description": "Salih Gökçebaş",
+  "start": "2022-09-06 20:00:00",
+  "end": "2022-09-06 20:30:00",
+  "color": "#40E0D0"
+},{
+  "_id": "65",
+  "title": "Yin Yoga",
+  "description": "Buket Harikçi",
+  "start": "2022-09-06 20:30:00",
+  "end": "2022-09-06 21:00:00",
+  "color": "#008000"
+},{
+  "_id": "66",
+  "title": "Çalkan Algün ile Fonksiyonel Antrenman",
+  "description": "",
+  "start": "2022-09-07 20:30:00",
+  "end": "2022-09-07 21:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "67",
+  "title": "Fzt. Oğuzhan Alan ile Soru-Cevap",
+  "description": "",
+  "start": "2022-09-07 21:00:00",
+  "end": "2022-09-07 21:30:00",
+  "color": "#000"
+},{
+  "_id": "68",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-08 20:30:00",
+  "end": "2022-09-08 21:00:00",
+  "color": "#FF0000"
+},{
+  "_id": "69",
+  "title": "BASIC CROSSFIT",
+  "description": "Salih Gökçebaş",
+  "start": "2022-09-08 21:00:00",
+  "end": "2022-09-08 21:30:00",
+  "color": "#40E0D0"
+},{
+  "_id": "70",
+  "title": "Mobility Streching",
+  "description": "Buse Sever",
+  "start": "2022-09-08 21:30:00",
+  "end": "2022-09-08 22:00:00",
+  "color": "#FFD700"
+},{
+  "_id": "71",
+  "title": "Mat Pilates",
+  "description": "Ezgi Altay",
+  "start": "2022-09-07 21:30:00",
+  "end": "2022-09-07 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "72",
+  "title": "Çalkan Algün ile Bölgesel Çalışma",
+  "description": "",
+  "start": "2022-09-09 20:30:00",
+  "end": "2022-09-09 21:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "73",
+  "title": "Yin Yoga",
+  "description": "Buket Harikçi",
+  "start": "2022-09-09 21:00:00",
+  "end": "2022-09-09 21:30:00",
+  "color": "#008000"
+},{
+  "_id": "75",
+  "title": "Mat Pilates",
+  "description": "Ezgi Altay",
+  "start": "2022-09-10 10:00:00",
+  "end": "2022-09-10 10:30:00",
+  "color": "#008000"
+},{
+  "_id": "76",
+  "title": "Çocuk Yogası",
+  "description": "Merve Aksu",
+  "start": "2022-09-10 10:30:00",
+  "end": "2022-09-10 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "77",
+  "title": "Çocuk Yogası",
+  "description": "Merve Aksu",
+  "start": "2022-09-11 10:30:00",
+  "end": "2022-09-11 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "78",
+  "title": "Fzt. Oğuzhan Alan ile Soru-Cevap",
+  "description": "",
+  "start": "2022-09-13 21:00:00",
+  "end": "2022-09-13 21:30:00",
+  "color": "#000"
+},{
+  "_id": "79",
+  "title": "Basic Crossfit ",
+  "description": "Salih Gökçebaş",
+  "start": "2022-09-10 09:30:00",
+  "end": "2022-09-10 10:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "81",
+  "title": "Basic Crossfit ",
+  "description": "Salih Gökçebaş",
+  "start": "2022-09-12 21:30:00",
+  "end": "2022-09-12 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "82",
+  "title": "Basic Crossfit ",
+  "description": "Salih Gökçebaş",
+  "start": "2022-09-14 21:30:00",
+  "end": "2022-09-14 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "84",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-12 21:00:00",
+  "end": "2022-09-12 21:30:00",
+  "color": "#FF0000"
+},{
+  "_id": "85",
+  "title": "Mat Pilates",
+  "description": "Ezgi Altay",
+  "start": "2022-09-14 21:00:00",
+  "end": "2022-09-14 21:30:00",
+  "color": "#008000"
+},{
+  "_id": "86",
+  "title": "Çalkan Algün ile Bölgesel Çalışma",
+  "description": "",
+  "start": "2022-09-13 20:30:00",
+  "end": "2022-09-13 21:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "87",
+  "title": "Çalkan Algün ile Fonksiyonel Antrenman",
+  "description": "",
+  "start": "2022-09-15 20:30:00",
+  "end": "2022-09-15 21:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "89",
+  "title": "basic crossfit",
+  "description": "salih gökçebaş ",
+  "start": "2022-09-19 21:00:00",
+  "end": "2022-09-19 21:30:00",
+  "color": "#40E0D0"
+},{
+  "_id": "90",
+  "title": "Çalkan Algün ile Fonksiyonel Çalışma",
+  "description": "",
+  "start": "2022-09-21 20:30:00",
+  "end": "2022-09-21 21:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "92",
+  "title": "Yin Yoga",
+  "description": "Buket Harikci",
+  "start": "2022-09-21 20:00:00",
+  "end": "2022-09-21 20:30:00",
+  "color": "#008000"
+},{
+  "_id": "93",
+  "title": "Mat Pilates",
+  "description": "Ezgi Altay",
+  "start": "2022-09-24 10:00:00",
+  "end": "2022-09-24 10:30:00",
+  "color": "#008000"
+},{
+  "_id": "94",
+  "title": "Mat Pilates",
+  "description": "Ezgi Altay",
+  "start": "2022-09-25 10:00:00",
+  "end": "2022-09-25 10:30:00",
+  "color": "#008000"
+},{
+  "_id": "95",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-19 20:30:00",
+  "end": "2022-09-19 21:00:00",
+  "color": "#FF0000"
+},{
+  "_id": "96",
+  "title": "Zumba",
+  "description": "Hazal Kocabaş",
+  "start": "2022-09-22 20:30:00",
+  "end": "2022-09-22 21:00:00",
+  "color": "#FF0000"
+},{
+  "_id": "97",
+  "title": "Çalkan Hoca ile Fonksiyonel Antrenman",
+  "description": "Çalkan Algün",
+  "start": "2022-09-17 19:30:00",
+  "end": "2022-09-17 20:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "98",
+  "title": "Çalkan Hoca ile Pazar Antrenmanı",
+  "description": "Çalkan Algün",
+  "start": "2022-09-18 10:30:00",
+  "end": "2022-09-18 11:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "99",
+  "title": "Çalkan Hoca ile Yağ Yakımı ",
+  "description": "Çalkan Algün",
+  "start": "2022-09-18 19:30:00",
+  "end": "2022-09-18 20:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "100",
+  "title": "çalkan algün ile fonksiyonel",
+  "description": "Çalkan Algün",
+  "start": "2022-09-20 21:00:00",
+  "end": "2022-09-20 21:30:00",
+  "color": "#0071c5"
+},{
+  "_id": "101",
+  "title": "Çalkan algun ile fonksiyonel",
+  "description": "Çalkan Algün",
+  "start": "2022-09-22 21:30:00",
+  "end": "2022-09-22 22:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "102",
+  "title": "BASİC CROSSFİT",
+  "description": "salih gökçebaş ",
+  "start": "2022-09-23 21:30:00",
+  "end": "2022-09-23 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "103",
+  "title": "ÇOCUK YOGASI",
+  "description": "MERVE AKSU",
+  "start": "2022-09-24 10:30:00",
+  "end": "2022-09-24 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "104",
+  "title": "ÇOCUK YOGASI ",
+  "description": "MERVE AKSU",
+  "start": "2022-09-24 20:30:00",
+  "end": "2022-09-24 21:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "105",
+  "title": "ÇOCUK YOGASI",
+  "description": "MERVE AKSU",
+  "start": "2022-09-25 10:30:00",
+  "end": "2022-09-25 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "106",
+  "title": "yin yoga",
+  "description": "Buket Harikci",
+  "start": "2022-09-23 20:30:00",
+  "end": "2022-09-23 21:00:00",
+  "color": "#008000"
+},{
+  "_id": "107",
+  "title": "zumba",
+  "description": "hazal kocabaş",
+  "start": "2022-09-26 20:30:00",
+  "end": "2022-09-26 21:00:00",
+  "color": "#FF0000"
+},{
+  "_id": "108",
+  "title": "çalkan algün ile fonksiyonel",
+  "description": "çalkan algün",
+  "start": "2022-09-26 21:30:00",
+  "end": "2022-09-26 22:00:00",
+  "color": "#0071c5"
+},{
+  "_id": "110",
+  "title": "çocuk yogası",
+  "description": "merve aksu ",
+  "start": "2022-09-28 21:30:00",
+  "end": "2022-09-28 22:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "112",
+  "title": "basit crossfit ",
+  "description": "salih gökçebaş ",
+  "start": "2022-09-27 21:30:00",
+  "end": "2022-09-27 22:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "113",
+  "title": "basic crossfit",
+  "description": "salih gökçebaş ",
+  "start": "2022-09-29 20:30:00",
+  "end": "2022-09-29 21:00:00",
+  "color": "#40E0D0"
+},{
+  "_id": "115",
+  "title": "mat pilates",
+  "description": "ezgi altay",
+  "start": "2022-09-28 21:00:00",
+  "end": "2022-09-28 21:30:00",
+  "color": "#008000"
+},{
+  "_id": "117",
+  "title": "mat pilates",
+  "description": "ezgi altay",
+  "start": "2022-10-01 10:00:00",
+  "end": "2022-10-01 10:30:00",
+  "color": "#008000"
+},{
+  "_id": "118",
+  "title": "çocuk yogası",
+  "description": "merve aksu",
+  "start": "2022-10-01 10:30:00",
+  "end": "2022-10-01 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "119",
+  "title": "çocuk yoga meditasyon",
+  "description": "merve aksu",
+  "start": "2022-10-01 20:30:00",
+  "end": "2022-10-01 21:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "120",
+  "title": "çocuk yogası",
+  "description": "merve aksu",
+  "start": "2022-10-02 10:30:00",
+  "end": "2022-10-02 11:00:00",
+  "color": "#FF8C00"
+},{
+  "_id": "121",
+  "title": "mobility streching ",
+  "description": "buse sever ",
+  "start": "2022-10-01 09:00:00",
+  "end": "2022-10-01 09:30:00",
+  "color": "#FFD700"
+},{
+  "_id": "122",
+  "title": "mobility streching",
+  "description": "buse sever ",
+  "start": "2022-10-02 10:00:00",
+  "end": "2022-10-02 10:30:00",
+  "color": "#FFD700"
+},{
+  "_id": "123",
+  "title": "yetişkin jimnastik",
+  "description": "izem hoca ",
+  "start": "2022-09-30 21:00:00",
+  "end": "2022-09-30 21:30:00",
+  "color": "#008000"
+},{
+  "_id": "124",
+  "title": "esneme ",
+  "description": "nur beyza mingan",
+  "start": "2022-09-30 21:30:00",
+  "end": "2022-09-30 22:00:00",
+  "color": "#FFD700"
+},{
+  "_id": "125",
+  "title": "animal flow",
+  "description": "caner uğurcan ",
+  "start": "2022-10-01 21:00:00",
+  "end": "2022-10-01 21:30:00",
+  "color": "#FF0000"
+}]

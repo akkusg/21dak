@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.html' %}
+
+<body>
+  {% include 'topbar.html' %}
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">21 Dakika</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="static/js/homepage/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          {% if user.isAdmin %}
+          <li><a class="nav-link" href="/admin">Admin</a></li>
+          {% endif %}
+          <li><a class="nav-link scrollto active" href="#hero">Anasayfa</a></li>
+          {% if user %}
+          {% if user.isVip() %}
+          <li><a class="nav-link scrollto" href="/videos">Ders İzle</a></li>
+          <li><a class="nav-link" href="/calendar">Ders Programı</a></li>
+          {% else %}
+          <li><a class="nav-link" href="/subscriptions">Abonelikler</a></li>
+          {% endif %}
+          <li><a class="nav-link scrollto" href="#classes">Dersler</a></li>
+          <li><a class="nav-link scrollto" href="#team">Eğitmenler</a></li>
+          <li><a class="nav-link scrollto" href="#contact">İletişim</a></li>
+          <li><a class="getstarted" href="/logout">Çıkış yap</a></li>
+          {% else %}
+          <li><a class="nav-link scrollto" href="#classes">Dersler</a></li>
+          <li><a class="nav-link scrollto" href="#team">Eğitmenler</a></li>
+          <li><a class="nav-link scrollto" href="#contact">İletişim</a></li>
+          <li><a class="getstarted scrollto" href="/login">Giriş yap</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(static/js/homepage/img/slide/slide-1.webp)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown"><span>21 Dakika</span>'ya Hoşgeldiniz</h2>
+              <p class="animate__animated animate__fadeInUp">Çalkan Algün</p>
+              <a href="#contact" class="btn-get-started animate__animated animate__fadeInUp scrollto">İletişim</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url(static/js/homepage/img/slide/slide-2.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">İletişim</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url(static/js/homepage/img/slide/slide-3.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="classes" class="classes">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Dersler</h2>
+          <p>Uzman kadromuzla katılabileceğiniz dersler</p>
+        </div>
+        <div class="row">
+          {%for class in class_list%}
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+              <div class="icon">
+                <img src="static/js/homepage/img/classes/{{class.image}}" alt="" width="100" height="120">
+              </div>
+              <h4><a href="">{{class.name}}</a></h4>
+              <h4><p href="">{{class.trainer}}</p></h4>
+              <p>{{class.description}}</p>
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Eğitmenler</h2>
+          <p>Uzman Kadromuz</p>
+        </div>
+
+        <div class="row">
+          {%for trainer in trainer_list%}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="static/js/homepage/img/team/{{trainer.image}}" alt="">
+              <h4>{{trainer.name}}</h4>
+              <span>{{trainer.expertise}}</span>
+              <div class="social">
+                <a href={{trainer.twitter}}><i class="bi bi-twitter"></i></a>
+                <a href={{trainer.facebook}}><i class="bi bi-facebook"></i></a>
+                <a href={{trainer.instagram}}><i class="bi bi-instagram"></i></a>
+                <a href={{trainer.linkedin}}><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>İLETİŞİM</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Adres:</h4>
+                <p>Selenium Retro 184, İstanbul</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>E-Posta:</h4>
+                <p>info@21dakika.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Telefon:</h4>
+                <p>+90 532 389 80 21</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12046.100184187064!2d28.8335849!3d40.9918799!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc96cf8e25a1dfd5!2sSelenium%20Retro%209!5e0!3m2!1str!2str!4v1665944339969!5m2!1str!2str" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="/mesajkaydet" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Adınız</label>
+                  <input type="text" name="adsoyad" class="form-control" id="adsoyad" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">E-Posta Adresiniz</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Konu</label>
+                <input type="text" class="form-control" name="konu" id="konu" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Mesajınız</label>
+                <textarea class="form-control" name="mesaj" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Mesajınız alınmıştır. Teşekkürler!</div>
+              </div>
+              <div class="text-center"><button type="submit">Gönder</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  {% include 'footer.html' %}
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+[{
+  "_id": "1",
+  "name": "Mat Pilates",
+  "trainer": "Çalkan Algün",
+  "image": "calkan_algun.webp",
+  "description": "Vücudunuzun daha dinç ve sağlıklı görünmesini, formda ve zinde olmayı, daha mutlu ve faydalı bir hayat sürmeyi, vücudunuzun sırlarını öğrenmeyi istiyorsanız Pilates eğitimlerinde kendinize yer ayırtın"
+},{
+  "_id": "2",
+  "name": "Basic CrossFit",
+  "trainer": "Salih Gökçebaş",
+  "image": "salih_gokcebas.webp",
+  "description": "Fitness antrenmanlarına kıyasla daha komplike programlar uygulamak ve yeni antrenmanlar denemek isteyenler buraya!"
+},{
+  "_id": "3",
+  "name": "Zumba",
+  "trainer": "Hazal Kocabaş",
+  "image": "hazal_kocabas.webp",
+  "description": "Dans, ritim ve fitnessın bir karması olarak özetlenebilen Zumba iyi bir kardiyo egzersizidir. Latin dansı müziklerinden ilham alınan aktivitede hip hop, salsa, mambo, flamenko, ve merenge gibi çeşitli stilleri bir araya getirir."
+},{
+  "_id": "4",
+  "name": "Mobility Stretching",
+  "trainer": "Buse Sever",
+  "image": "buse_sever.webp",
+  "description": "Vücudun mevcut hareket kapasitesini korumak, sakatlıkları önlemek ve bir antrenmana etkili şekilde hazır olmak amaçlı yapılan basit egzersizlerdir."
+}]

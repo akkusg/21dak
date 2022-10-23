@@ -1,0 +1,13 @@
+[{
+  "_id": "100",
+  "name": "Test Aylık Abonelik",
+  "durationMonth": 1,
+  "pricePerMonth": 1,
+  "referenceCode": "b5ccb8b0-e022-45fb-a8f2-ee9c0755b6a0"
+},{
+  "_id": "200",
+  "name": "Test Yıllık Abonelik",
+  "durationMonth": 12,
+  "pricePerMonth": 1,
+  "referenceCode": "3b5dac9b-294a-48aa-b8b3-df16024cbd8f"
+}]

@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "633f163e58667720112bac62"
+  },
+  "title": "Test Sport",
+  "url": "https://www.youtube.com/embed/triNqDRJH8Q?rel=0",
+  "date": "2022-10-06T20:00:00+00:00",
+  "premierEndDate": {
+    "$date": {
+      "$numberLong": "1666569540000"
+    }
+  },
+  "premierStartDate": {
+    "$date": {
+      "$numberLong": "1666479600000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635453f15ffefd0fc02b2be8"
+  },
+  "title": "Premier Deneme",
+  "url": "https://www.youtube.com/embed/iI9bXetcVx0?rel=0",
+  "date": {
+    "$date": {
+      "$numberLong": "1666481697945"
+    }
+  },
+  "premierStartDate": {
+    "$date": {
+      "$numberLong": "1666468800000"
+    }
+  },
+  "premierEndDate": {
+    "$date": {
+      "$numberLong": "1666472340000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6354567dbff8d5ae1eba09b5"
+  },
+  "title": "Premier Deneme 3",
+  "url": "https://www.youtube.com/embed/iI9bXetcVx0?rel=0",
+  "date": {
+    "$date": {
+      "$numberLong": "1666482349780"
+    }
+  },
+  "premierStartDate": {
+    "$date": {
+      "$numberLong": "1666468800000"
+    }
+  },
+  "premierEndDate": {
+    "$date": {
+      "$numberLong": "1666472340000"
+    }
+  }
+}]

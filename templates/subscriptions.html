@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>21dakika.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+    </style>
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+<!-- Links -->
+  <ul class="navbar-nav">
+      <!-- Navbar text-->
+    <li class="nav-item">
+      <a class="nav-link" href="/">Anasayfa</a>
+    </li>
+
+    {% if not isVip %}
+    <li class="nav-item">
+      <a class="nav-link active" href="/subscriptions">Üyelik Paketleri</a>
+    </li>
+    {% endif %}
+
+    <li class="nav-item">
+      <a class="nav-link" href="/derslerimiz">Derslerimiz</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/egitmenlerimiz">Eğitmenlerimiz</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="/iletisim">İletişim</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mesajlar">Mesajlar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/sepet">Sepet</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/logout"> Merhaba {{user["name"]}} - Çıkış yap</a>
+    </li>
+  </ul>
+
+</nav>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">21dakika.com Abonelik Paketleri</h1>
+      <p class="lead">Size en uygun paketi seçerek vip üye olmanın avantajlarından faydalanmaya başlayabilirsiniz.</p>
+    </div>
+
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        {%for subscription in subscriptions%}
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">{{subscription.name}}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{subscription.pricePerMonth}}₺ <small class="text-muted">/ Ay</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>{{subscription.durationMonth}} Ay Erişim</li>
+              <li>Eski eğitim videolarına erişim</li>
+              <li>Tüm Canlı Derslere Sınırsız Erişim</li>
+              <li>VIP Üye Desteği</li>
+            </ul>
+            <a href="initializeCheckout?id={{subscription._id}}" class="btn btn-lg btn-block btn-outline-primary">Seç</a>
+          </div>
+        </div>
+      {%endfor%}
+      </div>
+    </div>
+  </body>
+</html>

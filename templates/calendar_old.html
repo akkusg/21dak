@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Takvim</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link href='/static/js/fullcalendar/main.min.css' rel='stylesheet' />
+    <script src='/static/js/fullcalendar/main.min.js'></script>
+    <script src='/static/js/fullcalendar/tr.js'></script>
+    <script>
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    /* initialize the external events
+    -----------------------------------------------------------------*/
+
+    var containerEl = document.getElementById('external-events-list');
+    var durationInput = document.getElementById('class-duration');
+    new FullCalendar.Draggable(containerEl, {
+      itemSelector: '.fc-event',
+      eventData: function(eventEl) {
+        return {
+          title: eventEl.innerText.trim()
+        }
+      }
+    });
+
+
+    //// the individual way to do it
+    // var containerEl = document.getElementById('external-events-list');
+    // var eventEls = Array.prototype.slice.call(
+    //   containerEl.querySelectorAll('.fc-event')
+    // );
+    // eventEls.forEach(function(eventEl) {
+    //   new FullCalendar.Draggable(eventEl, {
+    //     eventData: {
+    //       title: eventEl.innerText.trim(),
+    //     }
+    //   });
+    // });
+
+    /* initialize the calendar
+    -----------------------------------------------------------------*/
+
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+    events: [
+
+
+    {%for event in events%}
+    {
+      title:'{{event.title}}',
+      start:'{{event.start}}',
+      end:'{{event.end}}',
+      color:'{{event.color}}',
+      id: '{{event._id}}'
+     },
+    {%endfor%}
+    ],
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      locale: 'tr',
+      selectable: true,
+      selectMirror: true,
+      select: function(arg) {
+        var title = prompt('Etkinlik Adı:');
+        if (title) {
+          calendar.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.end
+          })
+        }
+        calendar.unselect()
+      },
+      dayMaxEvents: 1,
+      eventClick: function(arg) {
+        console.log(arg.event._def.publicId);
+        return;
+        if (confirm('Bu etkinliği silmek istediğinize emin misiniz?')) {
+          arg.event.remove()
+        }
+      },
+      editable: true,
+      eventResizableFromStart: true,
+      droppable: true, // this allows things to be dropped onto the calendar
+      eventReceive: function(arg) {
+        console.log(JSON.stringify(arg));
+        const params = {
+            start:arg.event.start,
+            title:arg.event.title,
+            end:arg.event.end
+        }
+
+        const http = new XMLHttpRequest()
+        http.open('POST', '/insertEvent')
+        http.setRequestHeader('Content-type', 'application/json')
+        http.send(JSON.stringify(params)) // Make sure to stringify
+        http.onload = function() {
+            // Do whatever with response
+            arg.event._def.publicId = http.responseText;
+            console.log(arg.event._def.publicId);
+        }
+      },
+      eventResize: function(arg) {
+        console.log(JSON.stringify(arg));
+        arg.oldEvent.remove();
+        arg.event.remove();
+        calendar.addEvent(arg.event);
+        const params = {
+            start:arg.event.start,
+            title:arg.event.title,
+            end:arg.event.end,
+            _id: arg.event._def.publicId
+        }
+
+        console.log("params:",JSON.stringify(params));
+
+        const http = new XMLHttpRequest()
+        http.open('POST', '/updateEvent')
+        http.setRequestHeader('Content-type', 'application/json')
+        http.send(JSON.stringify(params)) // Make sure to stringify
+        http.onload = function() {
+            // Do whatever with response
+<!--            console.log(http.responseText)-->
+        }
+
+      }
+    });
+    calendar.render();
+
+  });
+
+</script>
+<style>
+
+
+
+  #external-events {
+    position: fixed;
+    left: 20px;
+    top: 110px;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+  }
+
+  #external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
+  }
+
+  #external-events .fc-event {
+    margin: 3px 0;
+    cursor: move;
+  }
+
+  #external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
+  }
+
+  #external-events p input {
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  #calendar-wrap {
+    margin-left: 200px;
+  }
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
+</head>
+<body>
+
+ {% include 'navmenu.html' %}
+<div class="container-fluid">
+  <h1>Takvim</h1>
+
+  <div id='wrap'>
+
+    <div id='external-events'>
+      {% if user.isAdmin %}
+      <h4>Dersler</h4>
+      {% endif %}
+      <div id='external-events-list'>
+        {% if user.isAdmin %}
+        {%for class in classes%}
+        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event' >
+          <div class='fc-event-main' data-event='{ "title": "{{class.name}}", "duration": "08:00" }'>{{class.name}}</div>
+        </div>
+        {%endfor%}
+        {% endif %}
+      </div>
+      {% if user.isAdmin %}
+        <label for="class-duration">Ders Süresi:</label>
+        <input type="time" id="class-duration" name="class-duration">
+      <p>
+        <input type='checkbox' id='drop-remove' />
+        <label for='drop-remove'>Tek seferlik ekle</label>
+      </p>
+      <p>
+        <button type='submit' id='save-calendar'>Takvimi Kaydet </button>
+      </p>
+      {% endif %}
+    </div>
+
+    <div id='calendar-wrap'>
+      <div id='calendar'></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <title>İletişim</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+<!-- Links -->
+  <ul class="navbar-nav">
+      <!-- Navbar text-->
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Anasayfa</a>
+    </li>
+
+    {% if not isVip %}
+    <li class="nav-item">
+      <a class="nav-link" href="/subscriptions">Üyelik Paketleri</a>
+    </li>
+    {% endif %}
+
+    <li class="nav-item">
+      <a class="nav-link" href="/derslerimiz">Derslerimiz</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/egitmenlerimiz">Eğitmenlerimiz</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="/iletisim">İletişim</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mesajlar">Mesajlar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/sepet">Sepet</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/logout"> Merhaba {{username}} - Çıkış yap</a>
+    </li>
+  </ul>
+
+</nav>
+
+<div class="container-fluid">
+  <h1>Hakkımızda</h1>
+  <p>Ekibimiz:</p>
+
+
+<div class="card-columns">
+
+{%for kisi in kisiler%}
+<div class="card" style="width:300px">
+  <img class="card-img-top" style="height:220px" src='{{kisi["fotograf"]}}' alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">{{kisi["ad_soyad"]}}</h4>
+    <p class="card-text">Görevi: {{kisi["gorev"]}}</p>
+    <a href="/profil/1" class="btn btn-primary">Profile git</a>
+  </div>
+</div>
+{%endfor%}
+
+
+</div>
+
+
+
+</div>
+
+</body>
+</html>

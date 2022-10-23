@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <title>İletişim</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+  {% include 'navmenu.html' %}
+
+<div class="container-fluid">
+    <h1>Mesajlar</h1>
+
+
+
+
+    <div class="card-columns">
+      {%for mesaj in mesaj_listesi%}
+      <div class="card" style="width:400px">
+          <div class="card-body">
+            <h4 class="card-title">{{mesaj["adsoyad"]}}</h4>
+            <p class="card-text">{{mesaj["mesaj"]}}</p>
+            <a href="mailto:{{mesaj['email']}}" class="card-link">Cevap yaz</a>
+          </div>
+      </div>
+
+      {%endfor%}
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

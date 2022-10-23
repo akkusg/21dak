@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <title>21dakika.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password], input[type=email], input[type=tel] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+    </style>
+</head>
+<body>
+{% include 'navmenu.html' %}
+<form action="/createPromoCode" method="post">
+  <div class="imgcontainer">
+    <img src="/static/promo_code.png" height="90" width="80" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <table width="100%">
+      <tr width="100%">
+        <td width="100%">
+          <label for="promo_code"><b>Kod</b></label>
+          <input type="text" placeholder="Oluşturmak istediğiniz Kod" id="promo_code" name="promo_code" required>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <label for="max_number_of_use"><b>Kaç kullanıcı için geçerli?</b></label>
+          <input type="text" placeholder="Kullanım Sayısı" id="max_number_of_use" name="max_number_of_use" required>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <label for="promo_days"><b>Geçerlilik gün sayısı</b></label>
+          <input type="text" placeholder="Kaç günlük" id="promo_days" name="promo_days" required>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <button type="submit" id="save_promo_code">Kod Oluştur</button>
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+</form>
+</body>
+</html>

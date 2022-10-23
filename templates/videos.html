@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.html' %}
+
+<body>
+
+{% include 'topbar.html' %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">21 Dakika</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="static/js/homepage/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="/">Anasayfa</a></li>
+          {% if user.isVip() %}
+          <li><a class="nav-link scrollto active" href="#main">Ders İzle</a></li>
+          <li><a class="nav-link" href="/calendar">Ders Programı</a></li>
+          {% else %}
+          <li><a class="nav-link" href="/subscriptions">Abonelikler</a></li>
+          {% endif %}
+          <li><a class="getstarted" href="/logout">Çıkış yap</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        {%if selected_video %}
+        <div class="section-title">
+          <h2>SEÇİLİ DERS</h2>
+        </div>
+        <div class="row">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+
+                  <iframe width="400" height="200" src={{selected_video.url}} title={{selected_video.title}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+              <h4><a href="">{{selected_video.title}}</a></h4>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+
+        <div class="section-title">
+          <h2>YAYINDAKİ DERSLER</h2>
+          <p>Uzman kadromuzla izleyebileceğiniz dersler</p>
+        </div>
+        <div class="row">
+          {%for video in videos%}
+          {%if video.get("premierStartDate") < now_time < video.get("premierEndDate") %}
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+
+                  <iframe width="400" height="200" src={{video.url}} title={{video.title}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+              <h4><a href="">{{video.title}}</a></h4>
+            </div>
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+    <div class="section-title">
+          <h2>GEÇMİŞ DERSLER</h2>
+          <p>Uzman kadromuzla izleyebileceğiniz dersler</p>
+        </div>
+        <div class="row">
+          {%for video in videos%}
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+
+                  <iframe width="400" height="200" src={{video.url}} title={{video.title}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+              <h4><a href="">{{video.title}}</a></h4>
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+
+  </main><!-- End #main -->
+
+{% include 'footer.html' %}
+
+</body>
+
+</html>
