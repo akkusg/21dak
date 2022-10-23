@@ -162,7 +162,7 @@ def initializeCheckout():
                                                                user.get("email"), user.get("phone"), user.get("tckn"), shippingAddress,
                                                                shippingAddress)
 
-            callbackUrl = "http://127.0.0.1:5000/completeCheckout?id=" + subscription_id
+            callbackUrl = "http://18.195.148.197:8000/completeCheckout?id=" + subscription_id
 
             responseDict = initialize_checkout.initialize_checkout_form(pricingPlanReferenceCode,
                                                                         customer,
@@ -386,4 +386,4 @@ def videos():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
