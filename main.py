@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import hashlib
 import dateutil.parser
 from dateutil.relativedelta import relativedelta
 from pymongo import ReturnDocument
@@ -72,9 +72,16 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        hashed_password = hashlib.pbkdf2_hmac(
+            'sha256', # The hash digest algorithm for HMAC
+            password.encode('utf-8'), # Convert the password to bytes
+            username, # Provide the salt
+            100000, # It is recommended to use at least 100,000 iterations of SHA-256 
+            dklen=128 # Get a 128 byte key
+        )
         user = users_table.find_one({"_id": username})
         if user:
-            if password == user["password"]:
+            if hashed_password == user["password"]:
                 del user['password']
                 session["user"] = user
                 update_last_login_time(user)
@@ -106,6 +113,13 @@ def register():
     if request.method == 'POST':
         user = dict(request.form)
         user["_id"] = user["email"]
+        user["password"] = hashlib.pbkdf2_hmac(
+            'sha256', # The hash digest algorithm for HMAC
+            user["password"].encode('utf-8'), # Convert the password to bytes
+            user["_id"], # Provide the salt
+            100000, # It is recommended to use at least 100,000 iterations of SHA-256 
+            dklen=128 # Get a 128 byte key
+        )
         user["expireDate"] = datetime.now()
         if len(user["promo_code"]) > 0:
             promo = mydb["PromoCodes"].find_one({"_id": user["promo_code"]})
