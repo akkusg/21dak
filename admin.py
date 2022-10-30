@@ -5,7 +5,7 @@ from datetime import datetime
 import dateutil.parser
 import pytz
 
-admin = Blueprint('admin', __name__, url_prefix='/admin', static_folder='admin\\static')
+admin = Blueprint('admin', __name__, url_prefix='/admin', static_folder='admin/static')
 myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
 mydb = myclient["PersonalTrainer"]
 users_table = mydb["Users"]
@@ -28,7 +28,8 @@ def dashboard():
             user_list = list(users_table.find())
             normal_user_list = list(filter(lambda current_user: is_user_dict_vip(current_user) is False, user_list))
             vip_user_list = list(filter(lambda current_user: is_user_dict_vip(current_user) is True, user_list))
-            return render_template("admin/dashboard.html", user=user, user_list=user_list, vip_user_count=len(vip_user_list),
+            return render_template("admin/dashboard.html", user=user, user_list=user_list,
+                                   vip_user_count=len(vip_user_list),
                                    normal_user_count=len(normal_user_list), active_page=1)
         else:
             return redirect("/login", code=302)
@@ -88,7 +89,8 @@ def add_video():
 
                 video_url = video_url.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
                 video_url += "?rel=0"
-                video = {"title": video_title, "url": video_url, "date": datetime.now(), "premierStartDate": premierStartDate, "premierEndDate": premierEndDate}
+                video = {"title": video_title, "url": video_url, "date": datetime.now(),
+                         "premierStartDate": premierStartDate, "premierEndDate": premierEndDate}
                 videos_table.insert_one(video)
             return redirect("/add-video")
         else:
