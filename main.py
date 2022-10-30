@@ -22,6 +22,8 @@ app.register_blueprint(admin)
 myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
 mydb = myclient["PersonalTrainer"]
 users_table = mydb["Users"]
+dummy_user_count = 1000
+user_count = len(list(users_table.find())) + dummy_user_count
 loginLogs = mydb["LoginLogs"]
 subscriptions_table = mydb["Subscriptions"]
 payment_logs = mydb["PaymentLogs"]
@@ -64,7 +66,7 @@ def homepage():
         print("username:", username)
         is_vip = user.isVip()
         print("isVip:", is_vip)        
-    return render_template("homepage.html", user=user, trainer_list=trainer_list, class_list=class_list, active_page=1)
+    return render_template("homepage.html", user=user, trainer_list=trainer_list, class_list=class_list, user_count=user_count)
 
 
 @app.route('/login', methods=['GET', 'POST'])
