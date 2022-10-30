@@ -155,9 +155,21 @@ def createPromoCode():
 
 @app.route('/subscriptions', methods=['GET'])
 def subscriptions():
-    user = session["user"]
-    subscriptionList = list(subscriptions_table.find())
-    return render_template("subscriptions.html", user=user, subscriptions=subscriptionList)
+    user = None
+    if 'user' in session:
+        user_dict = session["user"]
+        user_dict = users_table.find_one({"_id": user_dict["_id"]})
+        del user_dict['password']
+        session["user"] = user_dict
+        user = User(user_dict)
+        username = user.name + "" + user.surname
+        print("username:", username)
+        is_vip = user.isVip()
+        print("isVip:", is_vip)
+        subscriptionList = list(subscriptions_table.find())
+        return render_template("subscriptions.html", user=user, subscriptions=subscriptionList)
+    else:
+        return redirect("/login", code=302)
 
 
 @app.route('/initializeCheckout', methods=['GET', 'POST'])

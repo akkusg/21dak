@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>21dakika.com</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'head.html' %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -39,46 +37,36 @@
     </style>
   </head>
 
-  <body>
+<body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+{% include 'topbar.html' %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
 
-<!-- Links -->
-  <ul class="navbar-nav">
-      <!-- Navbar text-->
-    <li class="nav-item">
-      <a class="nav-link" href="/">Anasayfa</a>
-    </li>
+      <h1 class="logo me-auto"><a href="/">21 Dakika</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="static/js/homepage/img/logo.png" alt="" class="img-fluid"></a>-->
 
-    {% if not isVip %}
-    <li class="nav-item">
-      <a class="nav-link active" href="/subscriptions">Üyelik Paketleri</a>
-    </li>
-    {% endif %}
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="/">Anasayfa</a></li>
+          {% if user.isVip() %}
+          <li><a class="nav-link scrollto active" href="#main">Ders İzle</a></li>
+          <li><a class="nav-link" href="/calendar">Ders Programı</a></li>
+          {% else %}
+          <li><a class="nav-link" href="/subscriptions">Abonelikler</a></li>
+          {% endif %}
+          <li><a class="getstarted" href="/logout">Çıkış yap</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-    <li class="nav-item">
-      <a class="nav-link" href="/derslerimiz">Derslerimiz</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/egitmenlerimiz">Eğitmenlerimiz</a>
-    </li>
-      <li class="nav-item">
-      <a class="nav-link" href="/iletisim">İletişim</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/mesajlar">Mesajlar</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/sepet">Sepet</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="/logout"> Merhaba {{user["name"]}} - Çıkış yap</a>
-    </li>
-  </ul>
+    </div>
+  </header><!-- End Header -->
 
-</nav>
+
+  <main id="main">
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">21dakika.com Abonelik Paketleri</h1>
       <p class="lead">Size en uygun paketi seçerek vip üye olmanın avantajlarından faydalanmaya başlayabilirsiniz.</p>
@@ -105,5 +93,6 @@
       {%endfor%}
       </div>
     </div>
+  </main>
   </body>
 </html>
