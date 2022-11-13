@@ -199,6 +199,7 @@ def completeCheckout():
             token = responseForm.get("token")
             if token is not None:
                 paymentLog = complete_checkout.complete_checkout_form(token)
+                paymentLog["user"] = user_dict
                 payment_logs.insert_one(paymentLog)
                 if user.isVip():
                     user_dict["expireDate"] = user.expireDate + relativedelta(months=+duration_month)
