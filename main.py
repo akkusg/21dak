@@ -171,12 +171,13 @@ def initializeCheckout():
                                                                user.get("email"), user.get("phone"), user.get("tckn"), shippingAddress,
                                                                shippingAddress)
 
-            callbackUrl = "http://18.195.148.197/completeCheckout?id=" + subscription_id
+            callbackUrl = "http://21dakikada.com/completeCheckout?id=" + subscription_id
 
             responseDict = initialize_checkout.initialize_checkout_form(pricingPlanReferenceCode,
                                                                         customer,
                                                                         callbackUrl)
             checkoutFormContent = responseDict.get("checkoutFormContent")
+            checkoutFormContent = "<div id=\"iyzipay-checkout-form\" class=\"responsive\">" + checkoutFormContent + "</div>"
             return checkoutFormContent
 
         else:
