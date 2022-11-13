@@ -19,7 +19,8 @@ app.secret_key = 'bizim cok zor gizli sozcugumuz'
 # Blueprints
 app.register_blueprint(admin)
 
-myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
+# myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["PersonalTrainer"]
 users_table = mydb["Users"]
 dummy_user_count = 1000
@@ -133,26 +134,6 @@ def register():
         return redirect("/login", code=302)
     else:
         return render_template("register.html")
-
-
-@app.route('/createPromoCode', methods=['GET', 'POST'])
-def createPromoCode():
-    if request.method == 'POST':
-        promo = dict(request.form)
-        if len(list(mydb["PromoCodes"].find({"_id": promo["promo_code"]}))) > 0:
-            return "Bu kod zaten kullanılmış. <button onclick='history.back()'>Geri</button>"
-        m_promo = dict()
-        m_promo["_id"] = promo["promo_code"]
-        m_promo["max_number_of_use"] = int(promo["max_number_of_use"])
-        m_promo["promo_days"] = int(promo["promo_days"])
-        m_promo["remaining_use"] = int(promo["max_number_of_use"])
-        mydb["PromoCodes"].insert_one(m_promo)
-
-        return "OK"
-    else:
-        user_dict = session["user"]
-        user = User(user_dict)
-        return render_template("createPromoCode.html", user=user)
 
 
 @app.route('/subscriptions', methods=['GET'])

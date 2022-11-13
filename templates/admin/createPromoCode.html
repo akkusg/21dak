@@ -23,6 +23,83 @@
     <!-- Custom styles for this page -->
     <link href="static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--    <style>-->
+<!--        /* Bordered form */-->
+<!--form {-->
+<!--  border: 3px solid #f1f1f1;-->
+<!--}-->
+
+<!--/* Full-width inputs */-->
+<!--input[type=text], input[type=password], input[type=email], input[type=tel] {-->
+<!--  width: 100%;-->
+<!--  padding: 12px 20px;-->
+<!--  margin: 8px 0;-->
+<!--  display: inline-block;-->
+<!--  border: 1px solid #ccc;-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+
+<!--/* Set a style for all buttons */-->
+<!--button {-->
+<!--  background-color: #04AA6D;-->
+<!--  color: white;-->
+<!--  padding: 14px 20px;-->
+<!--  margin: 8px 0;-->
+<!--  border: none;-->
+<!--  cursor: pointer;-->
+<!--  width: 100%;-->
+<!--}-->
+
+<!--/* Add a hover effect for buttons */-->
+<!--button:hover {-->
+<!--  opacity: 0.8;-->
+<!--}-->
+
+<!--/* Extra style for the cancel button (red) */-->
+<!--.cancelbtn {-->
+<!--  width: auto;-->
+<!--  padding: 10px 18px;-->
+<!--  background-color: #f44336;-->
+<!--}-->
+
+<!--/* Center the avatar image inside this container */-->
+<!--.imgcontainer {-->
+<!--  text-align: center;-->
+<!--  margin: 24px 0 12px 0;-->
+<!--}-->
+
+<!--/* Avatar image */-->
+<!--img.avatar {-->
+<!--  border-radius: 50%;-->
+<!--}-->
+
+<!--/* Add padding to containers */-->
+<!--.container {-->
+<!--  padding: 16px;-->
+<!--}-->
+
+<!--/* The "Forgot password" text */-->
+<!--span.psw {-->
+<!--  float: right;-->
+<!--  padding-top: 16px;-->
+<!--}-->
+
+<!--/* Change styles for span and cancel button on extra small screens */-->
+<!--@media screen and (max-width: 300px) {-->
+<!--  span.psw {-->
+<!--    display: block;-->
+<!--    float: none;-->
+<!--  }-->
+<!--  .cancelbtn {-->
+<!--    width: 100%;-->
+<!--  }-->
+<!--}-->
+<!--    </style>-->
+
 </head>
 
 <body id="page-top">
@@ -61,14 +138,14 @@
                     <span>Kullanıcılar</span></a>
             </li>
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="add-video">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Videolar</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/admin/create-promo-code">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Hediye Kod Oluştur</span></a>
@@ -296,71 +373,62 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+              <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Videolar</h1>
-                    <p class="mb-4">Yeni video ekleyebilirsiniz.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Hediye Kodlar</h1>
+                    <p class="mb-4">Yeni hediye kodu oluşturabilirsiniz.</p>
 
-                    <form action="/admin/add-video" method="post">
-                        <div class="container-fluid p-2 my-2">
-                            <label for="videoTitle"><b>Video Başlığı</b></label>
-                            <input type="text" placeholder="Video Başlığı" id="videoTitle" name="videoTitle" class="form-control bg-light border-1 small" required>
-                            <label for="videoUrl"><b>Video Linki</b></label>
-                            <input type="text" placeholder="Video Link" id="videoUrl" name="videoUrl" class="form-control bg-light border-1 small" required>
-                            <label for="premierStartDate"><b>Video Canlı Yayın Başlangıç Tarihi</b></label>
-                            <input type="datetime-local" placeholder="Video Canlı Yayın Başlangıç Tarihi" id="premierStartDate" name="premierStartDate" class="form-control bg-light border-1 small" required>
-                            <label for="premierEndDate"><b>Video Canlı Yayın Bitiş Tarihi</b></label>
-                            <input type="datetime-local" placeholder="Video Canlı Yayın Bitiş Tarihi" id="premierEndDate" name="premierEndDate" class="form-control bg-light border-1 small" required>
-                            <br>
-                            <button type="submit" class="btn btn-primary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span class="text">Ekle</span>
-                            </button>
+                   <form action="/admin/create-promo-code" method="post">
+                       <div class="container-fluid p-2 my-2">
+                           <label for="promo_code"><b>Kod</b></label>
+                           <input type="text" placeholder="Oluşturmak istediğiniz Kod" id="promo_code" name="promo_code" class="form-control bg-light border-1 small" required>
+                           <label for="max_number_of_use"><b>Kaç kullanıcı için geçerli?</b></label>
+                           <input type="text" placeholder="Kullanım Sayısı" id="max_number_of_use" name="max_number_of_use" class="form-control bg-light border-1 small" required>
+                           <label for="promo_days"><b>Geçerlilik gün sayısı</b></label>
+                           <input type="text" placeholder="Kaç günlük" id="promo_days" name="promo_days" class="form-control bg-light border-1 small" required>
+                           <br>
+                           <button type="submit" class="btn btn-primary btn-icon-split" id="save_promo_code">
+                               <span class="icon text-white-50">
+                                   <i class="fas fa-plus"></i>
+                               </span>
+                               <span class="text">Kod Oluştur</span>
+                           </button>
+
                         </div>
                     </form>
 
                     <!-- Add Video -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Videolar</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Hediye Kodlar</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Başlık</th>
-                                            <th>Link</th>
-                                            <th>Başlangıç Tarihi</th>
-                                            <th>Bitiş Tarihi</th>
-                                            <th>Eklenme Tarihi</th>
+                                            <th>Kod</th>
+                                            <th>Maksimum Kullanım Sayısı</th>
+                                            <th>Kalan Kullanım Sayısı</th>
+                                            <th>Kod Hediye Gün Sayısı</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Başlık</th>
-                                            <th>Link</th>
-                                            <th>Başlangıç Tarihi</th>
-                                            <th>Bitiş Tarihi</th>
-                                            <th>Eklenme Tarihi</th>
+                                            <th>Kod</th>
+                                            <th>Maksimum Kullanım Sayısı</th>
+                                            <th>Kalan Kullanım Sayısı</th>
+                                            <th>Kod Hediye Gün Sayısı</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    {%for video in videos%}
+                                    {%for promo_code in promo_codes%}
                                         <tr>
-                                            <td>{{video._id}}</td>
-                                            <td>{{video.title}}</td>
-                                            <td>{{video.url}}</td>
-                                            <td>{{video.premierStartDate}}</td>
-                                            <td>{{video.premierEndDate}}</td>
-                                            <td>{{video.date}}</td>
+                                            <td>{{promo_code._id}}</td>
+                                            <td>{{promo_code.max_number_of_use}}</td>
+                                            <td>{{promo_code.remaining_use}}</td>
+                                            <td>{{promo_code.promo_days}}</td>
                                         </tr>
                                     {%endfor%}
                                     </tbody>

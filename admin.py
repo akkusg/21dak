@@ -6,10 +6,12 @@ import dateutil.parser
 import pytz
 
 admin = Blueprint('admin', __name__, url_prefix='/admin', static_folder='admin/static')
-myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
+# myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["PersonalTrainer"]
 users_table = mydb["Users"]
 videos_table = mydb["Videos"]
+promo_codes_table = mydb["PromoCodes"]
 
 
 @admin.route('/')
@@ -92,6 +94,27 @@ def add_video():
                 video = {"title": video_title, "url": video_url, "date": datetime.now(),
                          "premierStartDate": premierStartDate, "premierEndDate": premierEndDate}
                 videos_table.insert_one(video)
-            return redirect("/add-video")
+            return redirect("/admin/add-video")
         else:
             return redirect("/")
+
+
+@admin.route('/create-promo-code', methods=['GET', 'POST'])
+def create_promo_code():
+    if request.method == 'POST':
+        promo = dict(request.form)
+        if len(list(promo_codes_table.find({"_id": promo["promo_code"]}))) > 0:
+            return "Bu kod zaten kullanılmış. <button onclick='history.back()'>Geri</button>"
+        m_promo = dict()
+        m_promo["_id"] = promo["promo_code"]
+        m_promo["max_number_of_use"] = int(promo["max_number_of_use"])
+        m_promo["promo_days"] = int(promo["promo_days"])
+        m_promo["remaining_use"] = int(promo["max_number_of_use"])
+        promo_codes_table.insert_one(m_promo)
+
+        return redirect("/admin/create-promo-code")
+    else:
+        user_dict = session["user"]
+        user = User(user_dict)
+        promo_codes = list(promo_codes_table.find())
+        return render_template("admin/createPromoCode.html", user=user, promo_codes=promo_codes)
