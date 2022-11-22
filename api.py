@@ -1,7 +1,7 @@
 import base64
 
 from flask import Blueprint, render_template, redirect, session, request, url_for
-# from flask_login import LoginManager, login_required, logout_user
+from flask_login import LoginManager, login_required, logout_user
 from http import HTTPStatus
 import pymongo
 from classes.User import User
@@ -15,7 +15,7 @@ from dateutil.relativedelta import relativedelta
 from bson.objectid import ObjectId
 
 api = Blueprint('api', __name__, url_prefix='/api', static_folder='api/static')
-# login_manager = LoginManager(api)
+login_manager = LoginManager(api)
 myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
 # myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["PersonalTrainer"]
@@ -25,35 +25,35 @@ videos_table = mydb["Videos"]
 promo_codes_table = mydb["PromoCodes"]
 
 
-# @login_manager.user_loader
-# def load_user(username):
-#     return users_table.find_one({"_id": username})
-#
-#
-# @api.route("/logout")
-# @login_required
-# def logout():
-#     logout_user()
-#     return HTTPStatus.OK
-#
-#
-# @login_manager.request_loader
-# def load_user_from_request(request):
-#
-#     # next, try to login using Basic Auth
-#     api_key = request.headers.get('Authorization')
-#     if api_key:
-#         api_key = api_key.replace('Basic ', '', 1)
-#         try:
-#             api_key = base64.b64decode(api_key)
-#         except TypeError:
-#             pass
-#         user = User.query.filter_by(api_key=api_key).first()
-#         if user:
-#             return user
-#
-#     # finally, return None if both methods did not login the user
-#     return None
+@login_manager.user_loader
+def load_user(username):
+    return users_table.find_one({"_id": username})
+
+
+@api.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return HTTPStatus.OK
+
+
+@login_manager.request_loader
+def load_user_from_request(request):
+
+    # next, try to login using Basic Auth
+    api_key = request.headers.get('Authorization')
+    if api_key:
+        api_key = api_key.replace('Basic ', '', 1)
+        try:
+            api_key = base64.b64decode(api_key)
+        except TypeError:
+            pass
+        user = User.query.filter_by(api_key=api_key).first()
+        if user:
+            return user
+
+    # finally, return None if both methods did not login the user
+    return None
 
 
 @api.route('/login', methods=['POST'])
