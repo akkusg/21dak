@@ -11,13 +11,14 @@ from flask import Flask, render_template, request, redirect, session
 import pymongo
 from bson.objectid import ObjectId
 from admin import admin
-
+from api import api
 from classes.User import User
 
 app = Flask(__name__)
 app.secret_key = 'bizim cok zor gizli sozcugumuz'
 # Blueprints
 app.register_blueprint(admin)
+app.register_blueprint(api)
 
 myclient = pymongo.MongoClient("mongodb://mongouser:123321@localhost:27017/")
 # myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -129,6 +130,9 @@ def register():
             if promo and promo["remaining_use"] > 0:
                 user["expireDate"] = datetime.now() + relativedelta(days=+promo["promo_days"])
                 mydb["PromoCodes"].update_one({"_id": promo["_id"]}, {"$inc": {"remaining_use": -1}})
+
+        if not user["phone"].startswith("+90"):
+            user["phone"] = "+90" + user["phone"][-10]
 
         users_table.insert_one(user)
         return redirect("/login", code=302)
