@@ -92,6 +92,17 @@
         </div>
       {%endfor%}
       </div>
+      <form action="/usePromoCode" method="post" class="row g-3">
+          <div class="col-auto">
+            <label for="promo_code" class="form-label"><b>Promosyon Kodu</b></label>
+          </div>
+          <div class="col-auto">
+            <input type="text" placeholder="Promosyon Kodu" id="promo_code" name="promo_code" class="form-control" required>
+          </div>
+          <div class="col-auto">
+            <button type="submit" id="use_promo_code" class="btn btn-outline-primary">Kod kullan</button>
+          </div>
+      </form>
     </div>
   </main>
   </body>

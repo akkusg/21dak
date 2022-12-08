@@ -35,7 +35,7 @@ events_table = mydb["Events"]
 classes_table = mydb["Classes"]
 videos_table = mydb["Videos"]
 trainers_table = mydb["Trainers"]
-
+promo_codes_table = mydb["PromoCodes"]
 mesajlar_tablosu = mydb["mesajlar"]
 
 
@@ -138,6 +138,33 @@ def register():
         return redirect("/login", code=302)
     else:
         return render_template("register.html")
+
+
+@app.route('/usePromoCode', methods=['POST'])
+def use_promo_code():
+    if 'user' in session:
+        user_dict = session["user"]
+        user_dict = users_table.find_one({"_id": user_dict["_id"]})
+        del user_dict['password']
+        session["user"] = user_dict
+        user = User(user_dict)
+        form = dict(request.form)
+        promo_code = form["promo_code"]
+
+        if len(promo_code) > 0:
+            promo = promo_codes_table.find_one({"_id": promo_code})
+            if promo and promo["remaining_use"] > 0:
+                user_dict["expireDate"] = datetime.now() + relativedelta(days=+promo["promo_days"])
+                promo_codes_table.update_one({"_id": promo["_id"]}, {"$inc": {"remaining_use": -1}})
+                user_filter = {'_id': user.id}
+                new_values = {"$set": {"expireDate": user_dict.get('expireDate')}}
+                users_table.update_one(user_filter, new_values)
+                session["user"] = user_dict
+                return redirect("/")
+
+        return redirect("/subscriptions")
+    else:
+        return redirect("/login", code=302)
 
 
 @app.route('/subscriptions', methods=['GET'])
