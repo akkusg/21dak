@@ -132,7 +132,7 @@ def register():
                 mydb["PromoCodes"].update_one({"_id": promo["_id"]}, {"$inc": {"remaining_use": -1}})
 
         if not user["phone"].startswith("+90"):
-            user["phone"] = "+90" + user["phone"][-10]
+            user["phone"] = "+90" + user["phone"][-10:]
 
         users_table.insert_one(user)
         return redirect("/login", code=302)

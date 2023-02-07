@@ -88,10 +88,10 @@ def add_video():
 
                 if premierEndDate.tzinfo is None or premierEndDate.tzinfo.utcoffset(premierStartDate) is None:
                     premierEndDate = turkey.localize(premierEndDate)
-
-                video_url = video_url.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
+                video_id = video_url.replace("https://www.youtube.com/watch?v=", "")
+                video_url = "https://www.youtube.com/embed/" + video_id
                 video_url += "?rel=0"
-                video = {"title": video_title, "url": video_url, "date": datetime.now(),
+                video = {"videoId": video_id, "title": video_title, "url": video_url, "date": datetime.now(),
                          "premierStartDate": premierStartDate, "premierEndDate": premierEndDate}
                 videos_table.insert_one(video)
             return redirect("/admin/add-video")
